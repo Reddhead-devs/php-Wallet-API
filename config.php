@@ -9,6 +9,7 @@
 	Last Updated in Version: 0.0.x
 	Donation Bitcoin Address (Shane B.): 13ow3MfnbksrSxdcmZZvkhtv4mudsnQeLh
 	Donation Reddcoin Address (Antoan Stoykov): Ro9D17Q9E3vrSPZxKt5gePSE9dyCeqkkk2
+		Donation Reddcoin Address (iisurge): Rsurge4R9r1XWfPpkRMZ95p7AXsez7tFqw
 	Website: http://alienshaped.com http://bitcoindevkit.com
 	
 	License (AGPL)
