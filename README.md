@@ -24,7 +24,8 @@ Aimed at assisting in cutting down development time to integrate digital currenc
 * SSL support (if you're using HTTPS to communicate with your wallet)
 
 ###My Reddcoin Donation Address
-    Ro9D17Q9E3vrSPZxKt5gePSE9dyCeqkkk2
+    Rsurge4R9r1XWfPpkRMZ95p7AXsez7tFqw (iisurge)
+    Ro9D17Q9E3vrSPZxKt5gePSE9dyCeqkkk2 (Antoan Stoykov)
 
 ###OC Bitcoin Donation Address
     13ow3MfnbksrSxdcmZZvkhtv4mudsnQeLh
