@@ -6,8 +6,51 @@ Important Notice: Remember this is considered still in development phase, it is 
 This script was originally created by Shane B.
 https://github.com/Xenland/Bitcoin-Development-Kit
 
-###API, Wiki, Documentation, Instructions
-Coming soon
+Imporved by Antoan Stoykov and iisurge
+
+###Usage
+At the top of each file you should put: 
+
+    include_once 'includes/dbconnect.php';
+    include "includes/cryptowallet-php-api/config.php";
+    include "includes/cryptowallet-php-api/lib/jsonRPCClient.php";
+    include "includes/cryptowallet-php-api/lib/Crypto.php";
+    $crypt = new Crypto_API($integrity_check, $settings, $server);
+    if ($crypt->open_connection()) {
+    //Site here
+    }else {
+    echo 'Error connecting to wallet';
+    }
+    
+To interact with wallet in site use: 
+
+    $crypt->(function(params))
+example:
+
+    $crypt->generate_new_address($label);
+    
+The functions are:
+
+    generate_new_address($label); //$label is optional, if none is set it will go under label ""
+    gettransaction($hash);
+    getaccount($address);
+    set_tx_fee($amount_in_satoshi);
+    validate_address($address);
+    verify_message($address, $signature, $message);
+    list_transactions($account, $count, $from); //$count is 9999999999999 by default and $from is 0 by default
+    get_received_by_address($address, $minimum_confirmations); //$minimum_confirmations is 1 by default
+    get_balance($label, $minimum_confirmations); //$minimum_confirmations is 1 by default
+    move($fromLabel, $toLabel, $amount_in_satoshi);
+    sendfrom($label, $send_to_address, $amount_in_satoshi);
+    sendmany($label, $send_to_address);
+    get_transaction($tx_id);
+    satoshi_to_coin($satoshi_value);
+    coin_to_satoshi($coin_amount);
+     
+    
+    
+    
+  
 
 ###Purpose
 Aimed at assisting in cutting down development time to integrate digital currency functionality into your PHP projects.
@@ -27,8 +70,8 @@ Aimed at assisting in cutting down development time to integrate digital currenc
     Rsurge4R9r1XWfPpkRMZ95p7AXsez7tFqw (iisurge)
     Ro9D17Q9E3vrSPZxKt5gePSE9dyCeqkkk2 (Antoan Stoykov)
 
-###OC Bitcoin Donation Address
-    13ow3MfnbksrSxdcmZZvkhtv4mudsnQeLh
+###Bitcoin Donation Address
+    13ow3MfnbksrSxdcmZZvkhtv4mudsnQeLh (Shane B.)
 
 ###License | AGPL
     You should have received a copy of the Affero General Public License.  
