@@ -1,0 +1,163 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Wallet API</title>
+  <meta name="description" content="An easy to use API for reddcoind or other wallet rpc&#39;s">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Wallet API</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">An easy to use API for reddcoind or other wallet rpc&#39;s</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/Reddhead-devs/php-Wallet-API/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/Reddhead-devs/php-Wallet-API/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/Reddhead-devs/php-Wallet-API" class="code">View Wallet API on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>
+<a id="cryptocurrency-wallet-daemon-php-api" class="anchor" href="#cryptocurrency-wallet-daemon-php-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cryptocurrency wallet daemon PHP API</h1>
+
+<p>Important Notice: Remember this is considered still in development phase, it is nearing production usage. Please help test this library!</p>
+
+<h3>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credits</h3>
+
+<p>This script was originally created by Shane B.
+<a href="https://github.com/Xenland/Bitcoin-Development-Kit">https://github.com/Xenland/Bitcoin-Development-Kit</a></p>
+
+<p>Imporved by Antoan Stoykov and iisurge</p>
+
+<h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+<p>At the top of each file you should put: </p>
+
+<pre><code>include_once 'includes/dbconnect.php';
+include "includes/cryptowallet-php-api/config.php";
+include "includes/cryptowallet-php-api/lib/jsonRPCClient.php";
+include "includes/cryptowallet-php-api/lib/Crypto.php";
+$crypt = new Crypto_API($integrity_check, $settings, $server);
+if ($crypt-&gt;open_connection()) {
+//Site here
+}else {
+echo 'Error connecting to wallet';
+}
+</code></pre>
+
+<p>To interact with wallet in site use: </p>
+
+<pre><code>$crypt-&gt;(function(params))
+</code></pre>
+
+<p>example:</p>
+
+<pre><code>$crypt-&gt;generate_new_address($label);
+</code></pre>
+
+<p>The functions are:</p>
+
+<pre><code>generate_new_address($label); //$label is optional, if none is set it will go under label ""
+gettransaction($hash);
+getaccount($address);
+set_tx_fee($amount_in_satoshi);
+validate_address($address);
+verify_message($address, $signature, $message);
+list_transactions($account, $count, $from); //$count is 9999999999999 by default and $from is 0 by default
+get_received_by_address($address, $minimum_confirmations); //$minimum_confirmations is 1 by default
+get_balance($label, $minimum_confirmations); //$minimum_confirmations is 1 by default
+move($fromLabel, $toLabel, $amount_in_satoshi);
+sendfrom($label, $send_to_address, $amount_in_satoshi);
+sendmany($label, $send_to_address);
+get_transaction($tx_id);
+satoshi_to_coin($satoshi_value);
+coin_to_satoshi($coin_amount);
+</code></pre>
+
+<h3>
+<a id="purpose" class="anchor" href="#purpose" aria-hidden="true"><span class="octicon octicon-link"></span></a>Purpose</h3>
+
+<p>Aimed at assisting in cutting down development time to integrate digital currency functionality into your PHP projects.</p>
+
+<h3>
+<a id="list-of-benefits" class="anchor" href="#list-of-benefits" aria-hidden="true"><span class="octicon octicon-link"></span></a>List of benefits</h3>
+
+<ul>
+<li>All math is done in integers instead of decimals or floating points to prevent precision rounding errors of any kind.</li>
+<li>Redundant checking to prevent stochastic situations from slipping past security measures.</li>
+<li>Simple API commands</li>
+<li>Does not rely on a database but if a database is used more features are available with out compromising security.</li>
+<li>Fast, Quick, Efficient</li>
+</ul>
+
+<h3>
+<a id="php-requirements" class="anchor" href="#php-requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>PHP Requirements</h3>
+
+<ul>
+<li>PHP5</li>
+<li>SSL support (if you're using HTTPS to communicate with your wallet)</li>
+</ul>
+
+<h3>
+<a id="reddcoin-donation-address" class="anchor" href="#reddcoin-donation-address" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reddcoin Donation Address</h3>
+
+<pre><code>Rsurge4R9r1XWfPpkRMZ95p7AXsez7tFqw (iisurge)
+Ro9D17Q9E3vrSPZxKt5gePSE9dyCeqkkk2 (Antoan Stoykov)
+</code></pre>
+
+<h3>
+<a id="bitcoin-donation-address" class="anchor" href="#bitcoin-donation-address" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bitcoin Donation Address</h3>
+
+<pre><code>13ow3MfnbksrSxdcmZZvkhtv4mudsnQeLh (Shane B.)
+</code></pre>
+
+<h3>
+<a id="license--agpl" class="anchor" href="#license--agpl" aria-hidden="true"><span class="octicon octicon-link"></span></a>License | AGPL</h3>
+
+<pre><code>You should have received a copy of the Affero General Public License.  
+If not, see http://www.gnu.org/licenses/agpl-3.0.html
+</code></pre>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/Reddhead-devs" class="avatar"><img src="https://avatars1.githubusercontent.com/u/10472970?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/Reddhead-devs">Reddhead-devs</a> maintains <a href="https://github.com/Reddhead-devs/php-Wallet-API">Wallet API</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="http://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/Reddhead-devs/php-Wallet-API/tarball/master" class="tar">tar</a><a href="https://github.com/Reddhead-devs/php-Wallet-API/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>
