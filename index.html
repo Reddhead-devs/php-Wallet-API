@@ -78,16 +78,32 @@ echo 'Error connecting to wallet';
 
 <p>The functions are:</p>
 
-<pre><code>generate_new_address($label); //$label is optional, if none is set it will go under label ""
-gettransaction($hash);
+<pre><code>generate_new_address($label); 
+</code></pre>
+
+<p>$label is optional, if none is set it will go under label ""</p>
+
+<pre><code>gettransaction($hash);
 getaccount($address);
 set_tx_fee($amount_in_satoshi);
 validate_address($address);
 verify_message($address, $signature, $message);
-list_transactions($account, $count, $from); //$count is 9999999999999 by default and $from is 0 by default
-get_received_by_address($address, $minimum_confirmations); //$minimum_confirmations is 1 by default
-get_balance($label, $minimum_confirmations); //$minimum_confirmations is 1 by default
-move($fromLabel, $toLabel, $amount_in_satoshi);
+list_transactions($account, $count, $from); 
+</code></pre>
+
+<p>$count is 9999999999999 by default and $from is 0 by default</p>
+
+<pre><code>get_received_by_address($address, $minimum_confirmations); 
+</code></pre>
+
+<p>$minimum_confirmations is 1 by default</p>
+
+<pre><code>get_balance($label, $minimum_confirmations); 
+</code></pre>
+
+<p>$minimum_confirmations is 1 by default</p>
+
+<pre><code>move($fromLabel, $toLabel, $amount_in_satoshi);
 sendfrom($label, $send_to_address, $amount_in_satoshi);
 sendmany($label, $send_to_address);
 get_transaction($tx_id);
